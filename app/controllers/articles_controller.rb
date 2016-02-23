@@ -37,11 +37,11 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
     flash.notice = "Article '#{@article.title}' deleted!"
-    redirect_to articles_path
+    redirect_to articles_path 
   end
 
   private
     def article_params
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, :tag_list)
     end
 end
